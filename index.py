@@ -12,7 +12,7 @@ class jobs:
     def GET(self):
         jobs = requests.get("https://jobs.github.com/positions.json")
         unique_jobs = {}
-        for job in jobs.json:
+        for job in jobs.json():
             if not job.get("company") in unique_jobs:
                 unique_jobs[str(job.get("company"))] = []
             unique_jobs[str(job.get("company"))].append(job)
